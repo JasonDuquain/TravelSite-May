@@ -1,0 +1,50 @@
+.large-hero {
+    
+    
+
+    &__text-content {
+        
+        
+        @include breakpoint($medium) {
+            
+        }
+    } //.large-hero__text-content
+
+    &__title {
+        
+        
+        @include breakpoint($small) {
+            
+        }
+        
+        @include breakpoint($medium) {
+            
+        }
+        
+        @include breakpoint($large) {
+            
+        }
+        
+    } //.large-hero__title
+
+    &__subtitle {
+        
+        
+        @include breakpoint($small) {
+            
+        }
+    } //.large-hero__subtitle
+    
+    &__description {
+        
+    }
+    
+    img {
+        
+    }
+
+} //.large-hero
+
+
+
+

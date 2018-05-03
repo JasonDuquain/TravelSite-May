@@ -1,0 +1,113 @@
+
+
+.reveal-item {
+    
+    
+    &--is-visible {
+        
+    }
+    
+}
+
+@include breakpoint(max-width $medium) {
+    
+    .testimonial.reveal-item {
+        
+    
+        &--is-visible {
+            
+        }  
+    
+    }
+    
+    .row__medium-4:nth-child(even) .testimonial.reveal-item {
+        
+    
+        &--is-visible {
+             
+        }  
+    
+    }
+           
+}
+
+
+.headline {
+    
+    
+    @include breakpoint($small) {
+        
+    }
+}
+
+.headline--centered {
+    
+    
+}
+
+.headline--orange {
+    
+}
+
+.headline--small {
+    
+    
+    @include breakpoint($small) {
+        
+    }
+}
+
+.headline--narrow {
+    
+}
+
+.headline--light {
+    
+}
+
+.headline--b-margin-large {
+    
+}
+
+.headline--b-margin-small {
+    
+}
+
+.wrapper--b-margin {
+    
+    
+    @include breakpoint($small) {
+        
+    }
+}
+
+.headline--no-t-margin {
+    
+}
+
+.generic-content-container p {
+    
+    
+    @include breakpoint($small) {
+        
+    }
+}
+
+.generic-content-container p + p {
+    
+}
+
+.generic-content-container p a {
+    
+}
+
+
+.row__b-margin-until-medium {
+    
+    
+    @include breakpoint($medium) {
+        
+    }
+}
+
+
