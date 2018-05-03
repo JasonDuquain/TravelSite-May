@@ -1,6 +1,6 @@
 .large-hero {
     position: relative;
-    
+    border-bottom: .8vw solid $lightblue;
 
     &__text-content {
         position: absolute;
@@ -23,14 +23,6 @@
         
         @include breakpoint($small) {
             font-size: 4.8rem;    
-        }
-        
-        @include breakpoint($medium) {
-            
-        }
-        
-        @include breakpoint($large) {
-            
         }
         
     } //.large-hero__title
@@ -61,7 +53,7 @@
     }
     
     img {
-        
+        display: block;
     }
 
 } //.large-hero
