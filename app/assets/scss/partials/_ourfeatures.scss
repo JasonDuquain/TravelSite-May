@@ -13,13 +13,14 @@
     }
     
     &__icon {       
-        
         display: block;
         margin-left: auto;
         margin-right: auto;
         margin-bottom: .6rem;
         
         @include breakpoint($small) {
+            position: relative;
+            top: 8px;
             margin-right: .5rem; 
             margin-left: 0;
             display: inline-block;
