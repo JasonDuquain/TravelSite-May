@@ -4,9 +4,16 @@
     z-index: 2;
     width: 100%;
     padding: 10px 1.125rem;
+    transition: background-color 300ms ease-out;
+    overflow: hidden;
+    
+    &--is-expanded {
+        background-color: rgba($lightblue, .55);
+    }
     
     @include breakpoint($medium) {
         background-color: rgba($lightblue,.3);
+        overflow: visible;
     }
     
     @include breakpoint($large) {
@@ -14,12 +21,20 @@
     }
     
     &__btn-container {
-        float: right;
+        
+        @include breakpoint($medium) {
+            float: right;
+        }
     }
 
 } //.site-header
 
 .primary-nav {
+    padding-top: 10px;
+    
+    @include breakpoint($medium) {
+        padding-top: 0;
+    }
     
     ul {
         margin: 0;
@@ -28,15 +43,37 @@
         
         li {
             list-style-type: none;   
-            float: left;
-            padding-right: 20px;
+            padding-right: 7px;
+            display: inline-block;
+            
+            @include breakpoint($medium) {
+                padding-right: 20px;
+                float: left;
+                display: block;
+            }
+            
+            &:last-child {
+                padding-right: 0;
+                
+                @include breakpoint($medium) {
+                    padding-right: 20px;
+                }
+            }
             
             a {
                 text-decoration: none;
                 color: #fff;
                 font-weight: 300;
-                padding: 12px 0;
+                padding: 5px 8px;
+                font-size: .8rem;
                 display: block;
+                background-color: rgba($lightblue, .5);
+                
+                @include breakpoint($medium) {
+                    padding: 12px 0;
+                    font-size: 1rem;
+                    background-color: transparent;
+                }
             }
             
         } //li
@@ -46,7 +83,11 @@
 } //.primary-nav
 
 .primary-nav--pull-right {
-    float: right;
+    
+    
+    @include breakpoint($medium) {
+        float: right;
+    }
 }
 
 .site-header__logo {
@@ -70,23 +111,92 @@
 
 .site-header__menu-icon {
     width: 20px;
-    height: 20px;
-    background-color: #fff;
+    height: 19px;
     position: absolute;
     top: 10px;
     right: 10px;
+    cursor: pointer;
+    z-index: 10;
     
     @include breakpoint($medium) {
         display: none;    
     }
+    
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 3px;
+        width: 20px;
+        background-color: #fff;
+        transform-origin: left top;
+        transition: transform 300ms ease-out;
+    }
+    
+    &__middle {
+        position: absolute;
+        top: 8px;
+        left: 0;
+        height: 3px;
+        width: 20px;
+        background-color: #fff;
+        transition: all 300ms ease-out;
+        transform-origin: 0 50%;
+    }
+    
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 3px;
+        width: 20px;
+        background-color: #fff;
+        transform-origin: left bottom;
+        transition: transform 300ms ease-out;
+    }
+    
+    &--close-x {
+        
+        &::before {
+            transform: rotate(45deg) scaleX(1.25);
+        }
+        
+        .site-header__menu-icon__middle {
+            opacity: 0;
+            transform: scaleX(0);
+        }
+        
+        &::after {
+            transform: rotate(-45deg) scaleX(1.25) translateY(1px);
+        }
+        
+    }
+    
 }
 
 .site-header__menu-content {
-    display: none;
+    opacity: 0;
+    visibility: visible;
+    z-index: -1;
+    padding-top: 90px;
+    text-align: center;
+    transform: scale(1.2);
+    transition: all 300ms ease-out;
     
     @include breakpoint($medium) {
-        display: block;
+        opacity: 1;
+        z-index: 1;
+        padding-top: 0;
+        transform: scale(1);
     }
 }
 
 
+.site-header__menu-content--is-visible {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+    transform: scale(1);
+}
