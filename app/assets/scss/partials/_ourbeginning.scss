@@ -1,10 +1,16 @@
 
 
 .reveal-item {
-    
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.4);
+    transition: all 800ms ease-out;
+    transform-origin: center bottom;
     
     &--is-visible {
-        
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
     }
     
 }
@@ -12,24 +18,29 @@
 @include breakpoint(max-width $medium) {
     
     .testimonial.reveal-item {
-        
+        transform: translateX(100%);
     
         &--is-visible {
-            
+            transform: none;
         }  
     
     }
     
     .row__medium-4:nth-child(even) .testimonial.reveal-item {
-        
+        transform: translateX(-100%);
     
         &--is-visible {
-             
+         transform: none;     
         }  
     
     }
            
 }
+
+.generic-content-container {
+    overflow: hidden;
+}
+
 
 
 .headline {
